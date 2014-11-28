@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>img{ height: 100px; float: left; }</style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<title>An JSONP example from w3resource</title>
+</head>
+<body>
+<div id="images">
+</div>
+<script>
+	$.getJSON("http://digitalbox.cc/colaboradores.json?callback=jsonCallback",
+	{
+		tags: "cats, red",
+		tagmode: "black",
+		format: "json"
+	},
+	function(data) {
+		console.log("foi: " + data);
+	});
+</script>
+</body>
+</html>

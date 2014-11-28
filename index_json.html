@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="js/jquery.js"></script>
+<script>
+	$.ajax({
+		type:"GET",
+		url:"http://localhost:7070/jersey/rest/imovel/busca/cotia",
+		async:false,
+		dataType:"json",
+		success: function(jsonReturn){
+			if (jsonReturn.tipo == "erro"){
+				alert("Houve um erro:" + jsonReturn.mensagem);
+			}else if (jsonReturn.tipo == "sucesso"){
+				//alert(jsonReturn.mensagem);
+				$("#elemento ul").empty();
+				
+				$.each(jsonReturn.dado, function(idx, obj) {
+					alert(obj.titulo);
+				});
+			}
+		}
+	});
+</script>
+<div id="elemento">
+	<ul>
+		<li></li>
+	</ul>
+</div>
+</body>
+</html>

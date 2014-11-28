@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Imobiliária</title>
+    <link href="css/estilos.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/demo-slideshow.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="topo">
+      <p class="telefone">(11) 4143-3456</p>
+      <p class="email">contato@imobiliaria.com.br</p>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a class="first" href="admin-home.html">Home</a></li>
+        <li><a href="admin-clientes.html">Clientes</a></li>
+        <li><a href="admin-imoveis.html">Imóveis</a></li>
+      </ul>
+    </div>
+    <div class="wrapper">
+      <div class="admin">
+        <div class="content">
+          <h1>Dados do imóvel</h1>
+
+          <ul class="nav nav-tabs" role="tablist" id="myTab">
+            <li class="active"><a href="#home" role="tab" data-toggle="tab">Básico</a></li>
+            <li><a href="#profile" role="tab" data-toggle="tab">Descrição</a></li>
+            <li><a href="#messages" role="tab" data-toggle="tab">Fotos</a></li>
+            <li><a href="#settings" role="tab" data-toggle="tab">Detalhes</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <label>Título:</label>
+              <input class="form-control" maxlength="24" />
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Valor:</label>
+                  <input type= "text" name= "area_code" pattern= "[0-9]"  title= "Three digit area code."/>
+                </div>
+                <div class="col-md-4">
+                  <label>Fita:</label>
+                  <select class="form-control">
+                    <option>vendido</option>
+                    <option>indisponível</option>
+                    <option>aluga
+                    <option>à venda</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label>Metros:</label>
+                  <input class="form-control" maxlength="14" />
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Dormitórios:</label>
+                  <input class="form-control" type="number" value="0" min="0"/>
+                </div>
+                <div class="col-md-4">
+                  <label>Vagas na garagem:</label>
+                  <input class="form-control" type="number" value="0" min="0"/>
+                </div>
+                <div class="col-md-4">
+                  <label>Cidade:</label>
+                  <select class="form-control">
+                    <option>Cidade1</option>
+                    <option>Cidade2</option>
+                    <option>Cidade3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="profile">
+              <label>descricao-completa:</label>
+              <textarea maxlength="558" class="form-control" style="height: 117px;"></textarea>
+              <label>descricao-quadrante:</label>
+              <textarea maxlength="213" class="form-control"></textarea>
+              <label>descricao-carousel:</label>
+              <textarea maxlength="140" class="form-control"></textarea>
+            </div>
+            <div class="tab-pane" id="messages">
+              <label>foto - Grande:</label>
+              <input type="file" class="form-control">
+              <label>foto - Carousel:</label>
+              <input type="file" class="form-control">
+              <label>foto - Quadrante:</label>
+              <input type="file" class="form-control">
+              <label>foto - Thumb:</label>
+              <input type="file" class="form-control">
+            </div>
+            <div class="tab-pane" id="settings">
+              <label>caracteristicas:</label>
+              <input class="form-control" maxlength="14" />
+              <label>recursos:</label>
+              <input class="form-control" maxlength="14" />
+              <label>url maps:</label>
+              <input class="form-control" maxlength="14" />
+              <label>endereço:</label>
+              <input class="form-control" maxlength="14" />
+            </div>
+          </div>
+
+          <br />
+          <a href="admin-imoveis.html" class="btn btn-success"> salvar</a>
+          <a href="admin-imoveis.html" class="btn btn-success"> voltar</a>
+        </div>
+      </div>  
+    </div>
+  </body>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/tab.js"></script>
+  <script src="js/jquery.cycle2.js"></script>
+  <script src="js/bootstrap-slider.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="js/scripts.js"></script>
+</html>

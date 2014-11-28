@@ -1,0 +1,145 @@
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>Imobiliária</title>
+	    <link href="css/estilos.css" rel="stylesheet" />
+	    <link href="css/bootstrap.css" rel="stylesheet" />
+	    <link href="css/demo-slideshow.css" rel="stylesheet" />
+	    <link href="css/slider.css" rel="stylesheet" />
+	    <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+	</head>
+	<body class="home" ng-app="">
+	    <div class="topo">
+	      <p class="telefone">#{corretorBean.entity.telefone}</p>
+		  <p class="email">#{corretorBean.entity.email}</p>
+	    </div>
+	    <div class="menu">
+	      <div class="busca">
+	        <form id="form-busca"  onkeypress="if (event.keyCode == 13) { document.getElementById('form-busca:ttt').click(); return false; }">
+		        <input type="text" class="form-control" id="busca" placeholder="busca"/>
+		        <a href="#">
+		          <img src="img/lupa.png" />
+		        </a>
+	        </form>
+	      </div>
+	    </div>
+	    <div class="wrapper">
+	      <div class="home">
+	        <div class="content">
+	          <div class="hero">
+	            <div class="controls">
+	              <span class="prevControl geral"></span>
+	              <span class="nextControl geral"></span>
+	            </div>
+	            <div class="carousel">
+		              <div class="cycle-slideshow" 
+		                data-cycle-fx=scrollHorz
+		                data-cycle-timeout=14000
+		                data-cycle-prev=".prevControl"
+		                data-cycle-next=".nextControl"
+		                ng-controller="imovelCarouselControler"
+		                >
+		                <!-- empty element for overlay -->
+		                <div class="cycle-overlay"></div>
+		
+		                <img src="img/banner1.jpg" ng-repeat="o in imoveis">
+		                    
+		            </div>
+	            </div>
+	            <div class="direita">
+	              <div class="pesquisa">
+	              	<form action="resultado.xhtml" onsubmit="return check()">
+		                <p class="header">
+		                  <img src="img/lupa-branca.png" />
+		                  Pesquisa de imóveis
+		                </p>
+		                <div class="body">
+		                  <div class="combos">
+		                    <label>Tipo:</label>
+		                    <div class="btn-group tipo">
+		                      <select class="form-control">
+		                          <option>Qualquer</option>
+		                          <option>Apartamento</option>
+		                          <option>Casa</option>
+		                      </select>
+		                    </div>
+		                  </div>
+		                  <div class="combos">
+		                    <label>Cidade:</label>
+		                    <div class="btn-group cidade">
+		                      <select class="form-control">
+		                          <option>Qualquer</option>
+		                          <option>Cidade1</option>
+		                          <option>Cidade2</option>
+		                          <option>Pindamonhangabaa</option>
+		                      </select>
+		                    </div>
+		                  </div>
+		                  <div class="combos slider-wrapper">
+		                    <label>Faixa de preço:</label>
+		                    <input type="text" 
+		                            class="span2" 
+		                            value="ddd" 
+		                            data-slider-min="10000" 
+		                            data-slider-max="1000000" 
+		                            data-slider-step="1000" 
+		                            data-slider-value="[250000,450000]" 
+		                            id="slider" > 
+		                  </div>
+		                  <a href="#" class="btn btn-success pesquisar">Pesquisar</a>
+		                </div>
+					</form>
+	              </div>
+	              <div class="corretor">
+	                <p class="header">
+	                  <img src="img/lupa-branca.png" />
+	                  Fale com um corretor
+	                </p>
+	                <div class="body">
+	                  <img src="img/corretor.jpg" />
+	                  <p class="dados">
+	                    <span class="nome">#{corretorBean.entity.nome}</span> <br />
+	                    celular: <span class="celular">#{corretorBean.entity.celular}</span> <br />
+	                    fixo: <span class="fixo">#{corretorBean.entity.telefone}</span> <br />
+	                    <span class="email">#{corretorBean.entity.email}</span> <br />
+	                  </p>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="novidades" ng-controller="imovelController">
+	            <h1>Nossas novidades</h1>
+	            <div class="imovel quadrante" data-imovel-id="{{o.id}}" ng-repeat="o in imoveis">
+	                <div class="foto">
+	                  <img src="img/imoveis/{{o.fotoQuadrante}} " width="302" height="184"/>
+	                  <div class="enfeite-cima">
+	                    <p class="valor">
+	                    	{{o.temValor ? "R$ ".concat( o.valor ) : "Em Breve" }}
+	                    </p>
+	                  </div>
+	                  <div class="enfeite-baixo {{o.fita}}"></div>
+	                </div>
+	                <div class="descricao">
+	                  <div class="titulo">
+	                    {{o.titulo}}
+	                  </div>  
+	                  <div class="descritivo">
+	                    {{o.descricaoQuadrante}}
+	                  </div>
+	                  <div class="detalhes">
+	                    <p class="cidade"><img src="img/city.png" />Cidade:<span> {{o.cidade}}</span></p>
+	                    <p class="tamanho"><img src="img/home.png" />Tamanho:<span> {{o.metros}} metros</span></p>
+	                  </div>
+	                </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>  
+	    </div>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.cycle2.js"></script>
+		<script src="js/bootstrap-slider.js"></script>
+		<script src="js/dropdown.js"></script>
+		<script src="js/scripts.js"></script>
+  	</body>
+</html>

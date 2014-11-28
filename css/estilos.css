@@ -1,0 +1,501 @@
+body {
+  background-color: #eaeaea !important; }
+
+.wrapper {
+  width: 924px;
+  height: auto;
+  margin: 0 auto; }
+
+.topo {
+  height: 100px;
+  background-image: url('../img/filete-topo.jpg');
+  color: #757f87;
+  text-align: right;
+  padding-top: 27px;
+  padding-right: 12px;
+  z-index: 999999999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+  .topo .telefone {
+    display: block; }
+  .topo .email {
+    display: block; }
+
+.menu {
+  height: 48px;
+  background-image: url('../img/filete-menu.jpg');
+  margin-top: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999;
+  width: 100%; }
+  .menu ul {
+    height: 40px;
+    width: 620px;
+    padding-top: 14px;
+    float: left; }
+    .menu ul li {
+      display: inline;
+      padding: 0px 7px; }
+      .menu ul li a {
+        color: #635b50; }
+        .menu ul li a.selected {
+          color: #2c68b1; }
+        .menu ul li a:before {
+          content: url('../img/separador-menu.jpg');
+          position: absolute;
+          margin-left: -11px;
+          margin-top: -12px; }
+        .menu ul li a.first:before {
+          content: ""; }
+  .menu .busca {
+    float: right;
+    width: 224px;
+    margin-top: 6px; }
+    .menu .busca input {
+      width: 184px;
+      display: initial; }
+
+.home .content {
+  background-color: #eaeaea;
+  height: auto;
+  margin-top: 140px; }
+  .home .content .hero {
+    height: 380px;
+    padding-top: 20px; }
+    .home .content .hero .controls {
+      position: relative; }
+      .home .content .hero .controls .geral {
+        height: 30px;
+        width: 29px;
+        text-indent: -999999999999px;
+        z-index: 999;
+        position: absolute;
+        top: 153px;
+        content: "   ";
+        cursor: pointer; }
+      .home .content .hero .controls .prevControl {
+        left: 7px;
+        background-image: url('../img/seta-esquerda.jpg'); }
+      .home .content .hero .controls .nextControl {
+        right: 300px;
+        background-image: url('../img/seta-direta.jpg'); }
+    .home .content .hero .carousel {
+      width: 630px;
+      height: 100%;
+      float: left; }
+      .home .content .hero .carousel .cycle-overlay {
+        height: 77px; }
+      .home .content .hero .carousel .cycle-slideshow {
+        border-radius: 10px;
+        border: solid 7px white;
+        width: 630px; }
+        .home .content .hero .carousel .cycle-slideshow .descricao {
+          width: 430px;
+          height: 40px;
+          overflow: hidden;
+          float: left; }
+        .home .content .hero .carousel .cycle-slideshow .direita-carousel {
+          float: right;
+          width: 146px;
+          background-image: initial;
+          position: absolute;
+          right: 5px;
+          top: 7px;
+          font-size: 18px;
+          text-align: right;
+          padding-right: 14px; }
+    .home .content .hero .direita {
+      width: 286px;
+      height: 334px;
+      float: left;
+      background-image: url('../img/background-triped.png');
+      margin-top: 14px;
+      border-top-right-radius: 7px; }
+      .home .content .hero .direita .slider-wrapper {
+        width: 220px;
+        height: 50px; }
+        .home .content .hero .direita .slider-wrapper .slider {
+          margin-top: 9px; }
+      .home .content .hero .direita .header {
+        height: 40px;
+        background-color: #373737;
+        color: white;
+        padding-left: 9px;
+        padding-top: 9px;
+        font-size: 16px;
+        border-top-right-radius: 7px; }
+      .home .content .hero .direita .body {
+        padding-left: 9px;
+        height: 154px; }
+        .home .content .hero .direita .body .pesquisar {
+          margin-left: 171px;
+          margin-top: -14px; }
+        .home .content .hero .direita .body img {
+          float: left;
+          margin-right: 10px; }
+        .home .content .hero .direita .body .combos {
+          width: 260px;
+          height: 40px; }
+          .home .content .hero .direita .body .combos .tipo {
+            float: right; }
+          .home .content .hero .direita .body .combos .cidade {
+            float: right; 
+            }
+          .home .content .hero .direita .body .combos .cidade select{
+            height: 34px;
+            }
+  .home .content .novidades {
+    width: 100%;
+    padding-top: 10px;
+    height: 830px; }
+    .home .content .novidades h1 {
+      font-size: 21px;
+      color: #105dab;
+      padding-left: 8px;
+      margin-bottom: 6px; }
+    .home .content .novidades .imovel {
+      padding-left: 3px;
+      padding-right: 3px;
+      width: 308px;
+      float: left; }
+      .home .content .novidades .imovel .foto {
+        position: relative; }
+        .home .content .novidades .imovel .foto img {
+          width: 302px;
+          border-radius: 7px;
+          border: 7px solid white; }
+        .home .content .novidades .imovel .foto .enfeite-cima {
+          position: absolute;
+          top: 12px;
+          right: -1px;
+          background-image: url('../img/enfeite-cima-azul.png');
+          background-repeat: no-repeat;
+          width: 144px;
+          height: 44px;
+          padding-top: 2px;
+          padding-right: 9px; }
+          .home .content .novidades .imovel .foto .enfeite-cima p {
+            color: white;
+            font-size: 10px;
+            float: right;
+            margin: 0px; }
+          .home .content .novidades .imovel .foto .enfeite-cima .valor {
+            font-size: 14px;
+            padding-top: 8px;
+            padding-right: 4px; }
+        .home .content .novidades .imovel .foto .enfeite-baixo {
+          position: absolute;
+          bottom: -1px;
+          left: 0px;
+          width: 89px;
+          height: 88px;
+          text-indent: -9999px;
+          background-repeat: no-repeat; }
+          .home .content .novidades .imovel .foto .enfeite-baixo.aluga {
+            background-image: url('../img/enfeite-aluguel.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.venda {
+            background-image: url('../img/enfeite-venda.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.vendido {
+            background-image: url('../img/enfeite-vendido.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.indisponivel {
+            background-image: url('../img/enfeite-indisponivel.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.PRONTO {
+            background-image: url('../img/enfeite-pronto.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.PRE {
+            background-image: url('../img/enfeite-pre.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.LANCAMENTO {
+            background-image: url('../img/enfeite-lancamento.png'); }
+          .home .content .novidades .imovel .foto .enfeite-baixo.OBRAS {
+            background-image: url('../img/enfeite-obras.png'); }
+      .home .content .novidades .imovel .descricao {
+        background: white;
+        border-radius: 7px;
+        border: 7px solid white;
+        height: 174px;
+        margin-bottom: 23px;
+        padding-top: 9px;
+        padding-left: 5px;
+        padding-right: 7px;
+        margin-top: 5px; }
+        .home .content .novidades .imovel .descricao .titulo {
+          font-size: 14px;
+          font-weight: bold;
+          border-bottom: solid 1px #e7e7e7; }
+        .home .content .novidades .imovel .descricao .descritivo {
+          padding-top: 5px;
+          height: 62px;
+          overflow: hidden;
+          text-align: justify;
+          font-size: 11px;
+          margin-bottom: 9px; }
+        .home .content .novidades .imovel .descricao .detalhes p {
+          line-height: 23px; }
+          .home .content .novidades .imovel .descricao .detalhes p img {
+            padding-right: 8px; }
+
+.admin .content {
+  background-color: red;
+  height: auto;
+  margin-top: 160px;
+  background-color: white;
+  border-radius: 9px;
+  padding: 15px; }
+  .admin .content.clientes {
+    height: 470px; }
+  .admin .content .tabela {
+    height: 340px;
+    overflow: auto;
+    margin-bottom: 7px; }
+  .admin .content table {
+    height: 340px;
+    overflow: auto; }
+  .admin .content .tab-pane.active {
+    padding: 18px; }
+  .admin .content label {
+    margin-top: 18px; }
+
+.interna .content {
+  background-color: #eaeaea;
+  height: auto;
+  margin-top: 160px; }
+  .interna .content h1 {
+    color: #5c87bf;
+    font-size: 20px; }
+  .interna .content .hero {
+    height: 325px;
+    background-color: white;
+    border-radius: 9px; }
+    .interna .content .hero .imagem-grande {
+      padding-top: 8px;
+      padding-left: 8px; }
+    .interna .content .hero .dados {
+      float: right;
+      width: 482px;
+      padding-right: 12px; }
+      .interna .content .hero .dados .titulo {
+        font-size: 18px;
+        color: #5c87bf;
+        margin-top: 9px; }
+      .interna .content .hero .dados .descricao {
+        font-size: 14px;
+        color: #8b857e;
+        text-align: justify;
+        height: 152px;
+        overflow: hidden; }
+      .interna .content .hero .dados .detalhes {
+        position: relative; }
+        .interna .content .hero .dados .detalhes p {
+          line-height: 23px; }
+        .interna .content .hero .dados .detalhes p.suites {
+          	position: absolute;
+			left: 123px;
+			top: 98px;
+          }
+        .interna .content .hero .dados .detalhes p.banheiros {
+          	position: absolute;
+			left: 123px;
+			top: 68px;
+          }
+          .interna .content .hero .dados .detalhes p img {
+            padding-right: 8px; }
+        .interna .content .hero .dados .detalhes .btn {
+          right: 0px; }
+          .interna .content .hero .dados .detalhes .btn.botao1 {
+            position: absolute;
+            bottom: 56px; }
+          .interna .content .hero .dados .detalhes .botao2 {
+	            position: absolute;
+	            cursor: default;
+	            bottom: 13px; 
+	            right: 1px;
+				background-color: orange;
+				padding: 8px;
+            }
+  .interna .content .carousel {
+    height: 85px;
+    background-color: white;
+    margin-top: 9px;
+    border-radius: 9px;
+    padding-top: 8px; }
+    .interna .content .carousel .bt {
+      background-repeat: no-repeat;
+      text-indent: 9999;
+      height: 22px;
+      width: 22px;
+      text-indent: -999999999999px;
+      z-index: 999;
+      content: " ";
+      cursor: pointer;
+      position: absolute; }
+      .interna .content .carousel .bt#prev {
+        background-image: url("../img/carousel-seta-esquerda.jpg");
+        top: 30px;
+        left: 22px; }
+      .interna .content .carousel .bt#next {
+        background-image: url("../img/carousel-seta-direita.jpg");
+        top: 30px;
+        right: 22px; }
+    .interna .content .carousel .slideshow {
+      margin: 0 61px !important; }
+  .interna .content .itens {
+    height: 125px;
+    margin-top: 9px; }
+    .interna .content .itens ul {
+      background-color: #f2f2f2;
+      border: solid 1px white;
+      border-radius: 9px;
+      padding: 9px 15px;
+      list-style-image: url('../img/check.png');
+      height: 90px;
+      list-style-position: inside;
+      overflow: hidden; }
+      .interna .content .itens ul li {
+        float: left;
+        width: 177px;
+        height: 25px; }
+  .interna .content .mapa {
+    height: 425px;
+    margin-top: 14px; }
+    .interna .content .mapa iframe {
+      width: 100%;
+      border: solid 1px white !important; }
+    .interna .content .mapa p {
+      color: #635b50;
+      margin-bottom: 20px; }
+
+.slider.slider-horizontal .slider-track{
+	width: 87%!important;
+}
+.casa-nao-encontrada{
+	margin: 0 auto;	
+	display: block;
+}
+.texto-nao-encontrado{
+	font-size: 20px;
+	margin: 0 auto;
+display: block;
+width: 620px;
+}
+
+.modal-open .modal {
+	margin-top: 167px;
+}
+
+#form-login{
+	width: 300px;
+	margin: auto;
+	margin-top: 170px;
+}
+
+*{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.wrapper .dashboard{
+	margin-top: 200px;
+}
+
+.wrapper .dashboard .botao{
+	position: relative;
+	float: left;
+}
+
+.wrapper .dashboard .texto{
+	position: absolute;
+	top: 23px;
+	text-align: center;
+	width: 100px;
+	color: white;
+}
+
+.wrapper.admin-imovel #thumbs{
+	height: 296px;
+	overflow: auto;
+}
+
+.wrapper.admin-imovel #thumbs .thumb{
+	margin: 3px;
+	float: left;
+	position: relative;
+}
+
+.wrapper.admin-imovel #thumbs .thumb .button{
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+.wrapper.admin-imovel #thumbs .add-foto{
+	margin: 3px;
+	width: 92px; 
+	height: 69px; 
+	line-height: 55px; 
+	border: 2px dashed #ddd;
+	cursor: pointer;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+}
+.wrapper.admin-imovel #thumbs a{
+	width: 92px; 
+	height: 69px; 
+	font-size: 44px;
+	color: #ddd;
+	text-decoration: none;
+}
+.wrapper .home .carousel{
+	height: 334px;	
+}
+.wrapper .home .cycle-slideshow{
+	height: 348px;	
+}
+.wrapper .home .cycle-slideshow img{
+	height: 334px;	
+}
+
+.relative{
+	position: relative;
+}
+
+.msg-erro{
+	position: absolute;
+	color: red;
+	right: 8px;
+}
+
+.msg-erro.nome{
+	top: 89px;
+}
+
+.msg-erro.telefone{
+	top: 148px;
+}
+
+.msg-erro.celular{
+	top: 207px;
+}
+
+.msg-erro.email{
+	top: 266px;
+}
+
+.fixed{
+	position: fixed;
+	z-index: 999;
+	left: 85px;
+	top: 270px;
+	width: 160px;
+	height: 160px;
+}
+
+.fixed a{
+	width: 160px;
+	height: 160px;
+	display: block;
+}
