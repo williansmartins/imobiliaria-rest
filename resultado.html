@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+      	xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>Imobiliária</title>
+	    <link href="css/estilos.css" rel="stylesheet" />
+	    <link href="css/bootstrap.css" rel="stylesheet" />
+	    <link href="css/demo-slideshow.css" rel="stylesheet" />
+	    <link href="css/slider.css" rel="stylesheet" />
+	    <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+	    <script src="js/jquery.js"></script>
+		<script src="js/scripts.js"></script>
+		<script  src="js/App.js"></script> 
+	</head>
+	<body styleClass="resultado" ng-app="myApp">
+		    <div class="topo" ng-controller="CorretorCtrl">
+		      	<p class="telefone">{{data.dado.telefone}}</p>
+		  		<p class="email">{{data.dado.email}}</p>
+		    </div>
+		    <div class="menu">
+		      <ul>
+		        <li class=""><a class="selected first" href="index.xhtml">Home</a></li>
+		      </ul>
+			      <div class="busca">
+					<form id="form-busca"  onkeypress="if (event.keyCode == 13) { document.getElementById('form-busca:ttt').click(); return false; }">
+				        <input type="text" class="form-control" id="busca" placeholder="busca"/>
+				        <a href="#">
+				          <img src="img/lupa.png" />
+				        </a>
+			        </form>		      
+		    	</div>
+		    </div>
+			<form>
+		    <div class="wrapper">
+		      <div class="home">
+		        <div class="content">
+		          <div class="novidades" ng-controller="MyCtrl">
+		            <h1>Resultado da busca</h1>
+		            <h1>Encontrei estes itens abaixo...</h1>
+			            <div class="imovel quadrante" data-imovel-id="{{o.id}}" ng-repeat="o in data.dado">
+			                <div class="foto">
+			                  <img src="img/imoveis/{{o.fotoQuadrante}}" />
+			                  <div class="enfeite-cima">
+			                    <p class="valor">R$ {{o.valor}}</p>
+			                  </div>
+			                  <div class="enfeite-baixo {{o.fita}}"></div>
+			                </div>
+			                <div class="descricao">
+			                  <div class="titulo">
+			                    {{o.titulo}}
+			                  </div>  
+			                  <div class="descritivo">
+			                    {{o.descricaoQuadrante}}
+			                  </div>
+			                  <div class="detalhes">
+			                    <p class="cidade"><img src="img/city.png" />Cidade:<span> {{o.cidade}}</span></p>
+			                    <p class="tamanho"><img src="img/home.png" />Tamanho:<span> {{o.metros}} metros</span></p>
+			                  </div>
+			                </div>
+			            </div>
+		          	<h2>
+		          		<span rendered="{{imovelBean.lista == null}}" class="texto-nao-encontrado" value="Não encontrei nenhum imóvel com os dados que você me passou..."></span>
+		          	</h2>
+		          	<img rendered="{{imovelBean.lista == null}}" url="img/casa.png" class="casa-nao-encontrada" />
+		          </div>
+		        </div>
+		      </div>  
+		    </div>
+	    </form>
+		<script src="js/jquery.js"></script>
+		<script src="js/scripts.js"></script>
+  	</body>
+
+</html>
