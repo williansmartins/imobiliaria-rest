@@ -1,57 +1,16 @@
 $(document).ready( function(){
 	
-	if($("body").hasClass("home") ){
-		
-		// var $url = "http://localhost:7070/jersey/rest/corretor/entidade";
-	
-		// $.ajax({
-		//    type: 'GET',
-		//     url: $url,
-		//     async: false,
-		//     dataType: 'json',
-		//     crossDomain: true,
-		//     success: function(response) {   
-		// 		console.info(response);
-
-		//     	if ( response.tipo == "erro" ){
-		// 			alert( "É triste dizer, mas houve um erro:" + response.mensagem );
-		// 		}else if ( response.tipo == "sucesso" ){
-		// 			$(".topo .telefone").html( response.dado.telefone );
-		// 			$(".topo .email").html( response.dado.email );
-					
-		// 			$(".corretor .nome").html( response.dado.nome );
-		// 			$(".corretor .fixo").html( "fixo: " + response.dado.telefone );
-		// 			$(".corretor .celular").html( "celular: " + response.dado.celular );
-		// 			$(".corretor .email").html( response.dado.email );
-					
-		// 		}
-		// 	},         
-		// 	error: function(xhr, status, error) { 
-		// 		console.info('Error !!: ' + error); 
-		// 	},
-		// });
-	    
-		//Permite o clique no quadrante chamando a tela do imovel especifico
-		$(".imovel.quadrante").css( "cursor", "pointer" );
-		$(".imovel.quadrante").click(function (){
-			// console.info($(this).attr("data-imovel-id"));
-			window.location.replace("imovel.xhtml?imovel_id=" + $(this).attr("data-imovel-id") );
-		});
-		
-		$('#slider').slider({
-			formater: function(value) {
-				return 'R$ ' + addCommas(value);
-			}
-		});
-	}
-
 	if($("body").hasClass("admin-imovel") ){
+		//$('#myTab a:last').tab('show');
 		var tab = GetURLParameter('tab');
 		if(tab==undefined){
 			$('#myTab #tab-home').tab('show');
 		}else{
 			$('#myTab #'+tab+'').tab('show');
 		}
+//		$("#myTab a").click(function(){
+//			document.location.search = "tab="+$(this).attr('id');
+//		});
 	}
 	
 	if($("body").hasClass("clientes") ){
@@ -86,7 +45,7 @@ $(document).ready( function(){
 	    
 	//Bloquear o botao direito do mouse
 	var mensagem = "Não copie, além de imoral é crime!";
-	
+//	
 //	if (document.layers) {
 //		document.captureEvents(Event.MOUSEDOWN);
 //		document.onmousedown = clickNS;
@@ -99,28 +58,21 @@ $(document).ready( function(){
 	$('#modal-cliente\\:interesse').val( $('.titulo').html() );
 	$('#modal-cliente\\:imovel_id').val( $('#form-imovel\\:imovel_id_imovel').val() );
 	
-	if($("body").hasClass("teste") ){
-		var $urlJersey = "http://localhost:7070/jersey/rest/imovel/todos";
-	
-		$.ajax({
-		   type: 'GET',
-		    url: $urlJersey,
-		    async: false,
-		    dataType: 'json',
-		    crossDomain: true,
-		    success: function(data) {   
-		    	$resultado = data;          
-				$.each( $resultado, function( key, value ) {
-					console.info(value);
-				});
-			},         
-			error: function(xhr, status, error) { 
-				console.info('Error !!: ' + error); 
-			},
+	if($("body").hasClass("home") ){
+	    
+		//Permite o clique no quadrante chamando a tela do imovel especifico
+		$(".imovel.quadrante").css( "cursor", "pointer" );
+		$(".imovel.quadrante").click(function (){
+			console.info($(this).attr("data-imovel-id"));
+			window.location.replace("imovel.xhtml?imovel_id=" + $(this).attr("data-imovel-id") );
 		});
-	 
+		
+		$('#slider').slider({
+			formater: function(value) {
+				return 'R$ ' + addCommas(value);
+			}
+		});
 	}
-
 
 	if($("body").hasClass("resultado")){
 		
@@ -309,38 +261,4 @@ function validateEmail(email)
 {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
-}
-
-function imovelController($scope,$http) {
-  	$http.get("http://localhost:7070/jersey/rest/imovel/quadrantes22")
-  		.success(function(response) {
-  			$scope.tipo = response.tipo;
-  			$scope.imoveis = response.dado;
-  			$scope.mensagem = response.mensagem;
-
-  			if (response.tipo == "erro"){
-				alert("É uma pena, mas um erro ocorreu... e a única coisa que posso te falar é: " + response.mensagem);
-			}
-  			
-  		})
-  		.error(function(data, status, headers, config) {
-	  	    alert("É uma pena, mas um erro ocorreu... e foi na hora de buscar um tal de Jason");
-	  	});
-}
-
-function imovelCarouselControler($scope,$http) {
-	$http.get("http://localhost:7070/jersey/rest/imovel/carousel")
-	.success(function(response) {
-		$scope.tipo = response.tipo;
-		$scope.imoveis = response.dado;
-		$scope.mensagem = response.mensagem;
-		
-		if (response.tipo == "erro"){
-			alert("É uma pena, mas um erro ocorreu... e a única coisa que posso te falar é: " + response.mensagem);
-		}
-		
-	})
-	.error(function(data, status, headers, config) {
-		alert("É uma pena, mas um erro ocorreu... e foi na hora de buscar um tal de Jason");
-	});
 }

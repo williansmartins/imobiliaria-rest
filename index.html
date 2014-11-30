@@ -68,21 +68,18 @@
 		                  <div class="combos">
 		                    <label>Tipo:</label>
 		                    <div class="btn-group tipo">
-		                      <select class="form-control">
+		                      <select class="form-control" ng-controller="TiposCtrl">
 		                          <option>Qualquer</option>
-		                          <option>Apartamento</option>
-		                          <option>Casa</option>
+		                          <option ng-repeat="o in data.dado">{{o}}</option>
 		                      </select>
 		                    </div>
 		                  </div>
 		                  <div class="combos">
 		                    <label>Cidade:</label>
 		                    <div class="btn-group cidade">
-		                      <select class="form-control">
+		                      <select class="form-control" ng-controller="CidadesCtrl">
 		                          <option>Qualquer</option>
-		                          <option>Cidade1</option>
-		                          <option>Cidade2</option>
-		                          <option>Pindamonhangabaa</option>
+		                          <option ng-repeat="o in data.dado">{{o}}</option>
 		                      </select>
 		                    </div>
 		                  </div>

@@ -134,6 +134,9 @@ body {
         .home .content .hero .direita .body .pesquisar {
           margin-left: 171px;
           margin-top: -14px; }
+        .home .content .hero .direita .pesquisa form {
+          height: 189px;
+        }  
         .home .content .hero .direita .body img {
           float: left;
           margin-right: 10px; }
