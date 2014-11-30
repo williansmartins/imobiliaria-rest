@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Fix Cross Domain Ajax request CORS" />
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>  
+  <script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>  
+  <script  src="js/App.js"></script>  
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <title>Fixing Cross Domain Ajax Request</title>
+</head>
+<body ng-app="myApp">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">         
+          <a class="navbar-brand" href="#">CORS DEMO Fixed </a>
+        </div>        
+      </div><!-- /.container-fluid -->
+    </nav>
+<div class="container">
+  <div ng-controller="MyCtrl">
+    <div class="row">      
+    <div class="col-xs-12">      
+      <h2>Prayer Times in Dhaka</h2>
+      <table class="table table-bordered table-stripped table-responsive table-hover" ng-show="data">
+        <thead>
+          <tr class="success">
+            <th>Date</th>
+            <th>Fajr</th>
+            <th>Duhr</th>
+            <th>Asr</th>
+            <th>Maghrib</th>
+            <th>Isha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="day in data.dado">
+            <td>{{day.titulo}}</td>
+            <td>{{day.cidade}}</td>
+            <td>{{day.titulo}}</td>
+            <td>{{day.titulo}}</td>
+            <td>{{day.titulo}}</td>
+            <td>{{day.titulo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

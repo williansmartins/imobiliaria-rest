@@ -291,14 +291,14 @@ body {
         .interna .content .hero .dados .detalhes p {
           line-height: 23px; }
         .interna .content .hero .dados .detalhes p.suites {
-            position: absolute;
-      left: 123px;
-      top: 98px;
+          	position: absolute;
+			left: 123px;
+			top: 98px;
           }
         .interna .content .hero .dados .detalhes p.banheiros {
-            position: absolute;
-      left: 123px;
-      top: 68px;
+          	position: absolute;
+			left: 123px;
+			top: 68px;
           }
           .interna .content .hero .dados .detalhes p img {
             padding-right: 8px; }
@@ -308,12 +308,12 @@ body {
             position: absolute;
             bottom: 56px; }
           .interna .content .hero .dados .detalhes .botao2 {
-              position: absolute;
-              cursor: default;
-              bottom: 13px; 
-              right: 1px;
-        background-color: orange;
-        padding: 8px;
+	            position: absolute;
+	            cursor: default;
+	            bottom: 13px; 
+	            right: 1px;
+				background-color: orange;
+				padding: 8px;
             }
   .interna .content .carousel {
     height: 85px;
@@ -368,27 +368,27 @@ body {
       margin-bottom: 20px; }
 
 .slider.slider-horizontal .slider-track{
-  width: 87%!important;
+	width: 87%!important;
 }
 .casa-nao-encontrada{
-  margin: 0 auto; 
-  display: block;
+	margin: 0 auto;	
+	display: block;
 }
 .texto-nao-encontrado{
-  font-size: 20px;
-  margin: 0 auto;
+	font-size: 20px;
+	margin: 0 auto;
 display: block;
 width: 620px;
 }
 
 .modal-open .modal {
-  margin-top: 167px;
+	margin-top: 167px;
 }
 
 #form-login{
-  width: 300px;
-  margin: auto;
-  margin-top: 170px;
+	width: 300px;
+	margin: auto;
+	margin-top: 170px;
 }
 
 *{
@@ -399,103 +399,103 @@ width: 620px;
 }
 
 .wrapper .dashboard{
-  margin-top: 200px;
+	margin-top: 200px;
 }
 
 .wrapper .dashboard .botao{
-  position: relative;
-  float: left;
+	position: relative;
+	float: left;
 }
 
 .wrapper .dashboard .texto{
-  position: absolute;
-  top: 23px;
-  text-align: center;
-  width: 100px;
-  color: white;
+	position: absolute;
+	top: 23px;
+	text-align: center;
+	width: 100px;
+	color: white;
 }
 
 .wrapper.admin-imovel #thumbs{
-  height: 296px;
-  overflow: auto;
+	height: 296px;
+	overflow: auto;
 }
 
 .wrapper.admin-imovel #thumbs .thumb{
-  margin: 3px;
-  float: left;
-  position: relative;
+	margin: 3px;
+	float: left;
+	position: relative;
 }
 
 .wrapper.admin-imovel #thumbs .thumb .button{
-  position: absolute;
-  top: 2px;
-  right: 2px;
+	position: absolute;
+	top: 2px;
+	right: 2px;
 }
 .wrapper.admin-imovel #thumbs .add-foto{
-  margin: 3px;
-  width: 92px; 
-  height: 69px; 
-  line-height: 55px; 
-  border: 2px dashed #ddd;
-  cursor: pointer;
-  float: left;
-  overflow: hidden;
-  text-align: center;
+	margin: 3px;
+	width: 92px; 
+	height: 69px; 
+	line-height: 55px; 
+	border: 2px dashed #ddd;
+	cursor: pointer;
+	float: left;
+	overflow: hidden;
+	text-align: center;
 }
 .wrapper.admin-imovel #thumbs a{
-  width: 92px; 
-  height: 69px; 
-  font-size: 44px;
-  color: #ddd;
-  text-decoration: none;
+	width: 92px; 
+	height: 69px; 
+	font-size: 44px;
+	color: #ddd;
+	text-decoration: none;
 }
 .wrapper .home .carousel{
-  height: 334px;  
+	height: 334px;	
 }
 .wrapper .home .cycle-slideshow{
-  height: 348px;  
+	height: 348px;	
 }
 .wrapper .home .cycle-slideshow img{
-  height: 334px;  
+	height: 334px;	
 }
 
 .relative{
-  position: relative;
+	position: relative;
 }
 
 .msg-erro{
-  position: absolute;
-  color: red;
-  right: 8px;
+	position: absolute;
+	color: red;
+	right: 8px;
 }
 
 .msg-erro.nome{
-  top: 89px;
+	top: 89px;
 }
 
 .msg-erro.telefone{
-  top: 148px;
+	top: 148px;
 }
 
 .msg-erro.celular{
-  top: 207px;
+	top: 207px;
 }
 
 .msg-erro.email{
-  top: 266px;
+	top: 266px;
 }
 
 .fixed{
-  position: fixed;
-  z-index: 999;
-  left: 85px;
-  top: 270px;
-  width: 160px;
-  height: 160px;
+	position: fixed;
+	z-index: 999;
+	left: 85px;
+	top: 270px;
+	width: 160px;
+	height: 160px;
 }
 
 .fixed a{
-  width: 160px;
-  height: 160px;
-  display: block;
+	width: 160px;
+	height: 160px;
+	display: block;
 }

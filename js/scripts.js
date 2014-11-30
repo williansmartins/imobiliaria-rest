@@ -1,16 +1,57 @@
 $(document).ready( function(){
 	
+	if($("body").hasClass("home") ){
+		
+		// var $url = "http://localhost:7070/jersey/rest/corretor/entidade";
+	
+		// $.ajax({
+		//    type: 'GET',
+		//     url: $url,
+		//     async: false,
+		//     dataType: 'json',
+		//     crossDomain: true,
+		//     success: function(response) {   
+		// 		console.info(response);
+
+		//     	if ( response.tipo == "erro" ){
+		// 			alert( "É triste dizer, mas houve um erro:" + response.mensagem );
+		// 		}else if ( response.tipo == "sucesso" ){
+		// 			$(".topo .telefone").html( response.dado.telefone );
+		// 			$(".topo .email").html( response.dado.email );
+					
+		// 			$(".corretor .nome").html( response.dado.nome );
+		// 			$(".corretor .fixo").html( "fixo: " + response.dado.telefone );
+		// 			$(".corretor .celular").html( "celular: " + response.dado.celular );
+		// 			$(".corretor .email").html( response.dado.email );
+					
+		// 		}
+		// 	},         
+		// 	error: function(xhr, status, error) { 
+		// 		console.info('Error !!: ' + error); 
+		// 	},
+		// });
+	    
+		//Permite o clique no quadrante chamando a tela do imovel especifico
+		$(".imovel.quadrante").css( "cursor", "pointer" );
+		$(".imovel.quadrante").click(function (){
+			// console.info($(this).attr("data-imovel-id"));
+			window.location.replace("imovel.xhtml?imovel_id=" + $(this).attr("data-imovel-id") );
+		});
+		
+		$('#slider').slider({
+			formater: function(value) {
+				return 'R$ ' + addCommas(value);
+			}
+		});
+	}
+
 	if($("body").hasClass("admin-imovel") ){
-		//$('#myTab a:last').tab('show');
 		var tab = GetURLParameter('tab');
 		if(tab==undefined){
 			$('#myTab #tab-home').tab('show');
 		}else{
 			$('#myTab #'+tab+'').tab('show');
 		}
-//		$("#myTab a").click(function(){
-//			document.location.search = "tab="+$(this).attr('id');
-//		});
 	}
 	
 	if($("body").hasClass("clientes") ){
@@ -80,44 +121,6 @@ $(document).ready( function(){
 	 
 	}
 
-	if($("body").hasClass("home") ){
-		
-		var $url = "http://localhost:7070/jersey/json";
-		var $url2 = "http://digitalbox.cc/colaboradores.json";  
-		var $url3 = "http://localhost:7070/jersey/rest/corretor/busca?callback=jsonCallback";
-	
-		$.ajax({
-		   type: 'GET',
-		    url: $url,
-		    async: false,
-		    jsonpCallback: 'jsonCallback',
-		    contentType: "application/json",
-		    dataType: 'json',
-		    success: function(data) {   
-		    	$resultado = data;          
-				
-				$.each( $resultado, function( key, value ) {
-					console.info(value);
-				});
-			},         
-			error: function(xhr, status, error) { 
-				console.info('Error !!: ' + error); 
-			},
-		});
-	    
-		//Permite o clique no quadrante chamando a tela do imovel especifico
-		$(".imovel.quadrante").css( "cursor", "pointer" );
-		$(".imovel.quadrante").click(function (){
-			console.info($(this).attr("data-imovel-id"));
-			window.location.replace("imovel.xhtml?imovel_id=" + $(this).attr("data-imovel-id") );
-		});
-		
-		$('#slider').slider({
-			formater: function(value) {
-				return 'R$ ' + addCommas(value);
-			}
-		});
-	}
 
 	if($("body").hasClass("resultado")){
 		
@@ -309,7 +312,7 @@ function validateEmail(email)
 }
 
 function imovelController($scope,$http) {
-  	$http.get("http://localhost:7070/jersey/rest/imovel/quadrantes")
+  	$http.get("http://localhost:7070/jersey/rest/imovel/quadrantes22")
   		.success(function(response) {
   			$scope.tipo = response.tipo;
   			$scope.imoveis = response.dado;

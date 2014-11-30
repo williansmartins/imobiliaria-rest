@@ -7,11 +7,15 @@
 	    <link href="css/demo-slideshow.css" rel="stylesheet" />
 	    <link href="css/slider.css" rel="stylesheet" />
 	    <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+	    <script src="js/jquery.js"></script>
+		<script src="js/scripts.js"></script>
+		<script  src="js/App.js"></script> 
 	</head>
-	<body class="home" ng-app="">
-	    <div class="topo">
-	      <p class="telefone">#{corretorBean.entity.telefone}</p>
-		  <p class="email">#{corretorBean.entity.email}</p>
+	<body class="home" ng-app="myApp">
+	    <div class="topo" ng-controller="CorretorCtrl">
+	      <p class="telefone">{{data.dado.telefone}}</p>
+		  <p class="email">{{data.dado.email}}</p>
 	    </div>
 	    <div class="menu">
 	      <div class="busca">
@@ -31,18 +35,25 @@
 	              <span class="prevControl geral"></span>
 	              <span class="nextControl geral"></span>
 	            </div>
-	            <div class="carousel">
+	            <div class="carousel" ng-controller="ImovelCarouselCtrl">
 		              <div class="cycle-slideshow" 
 		                data-cycle-fx=scrollHorz
 		                data-cycle-timeout=14000
 		                data-cycle-prev=".prevControl"
 		                data-cycle-next=".nextControl"
-		                ng-controller="imovelCarouselControler"
+		                data-cycle-log="false"
+
 		                >
 		                <!-- empty element for overlay -->
 		                <div class="cycle-overlay"></div>
 		
-		                <img src="img/banner1.jpg" ng-repeat="o in imoveis">
+		                <img src="img/banner1.jpg" 
+		                		ng-repeat="o in data.dado"
+		                		data-cycle-title="{{o.titulo}}" 
+			                    data-cycle-desc="&lt;p class='descricao'&gt;{{o.descricaoCarousel}}&lt;/p&gt;
+			                    &lt;p class='direita-carousel'&gt;R$ {{o.valor}}
+			                    &lt;a href='imovel.xhtml?imovel_id={{o.id}}' class='btn btn-success'&gt;Leia Mais&lt;/a&gt;
+			                    &lt;/p&gt;" >
 		                    
 		            </div>
 	            </div>
@@ -79,37 +90,38 @@
 		                    <label>Faixa de preço:</label>
 		                    <input type="text" 
 		                            class="span2" 
-		                            value="ddd" 
+		                            value=""
+		                            name="preco" 
 		                            data-slider-min="10000" 
 		                            data-slider-max="1000000" 
 		                            data-slider-step="1000" 
 		                            data-slider-value="[250000,450000]" 
-		                            id="slider" > 
+		                            id="slider" /> 
 		                  </div>
 		                  <a href="#" class="btn btn-success pesquisar">Pesquisar</a>
 		                </div>
 					</form>
 	              </div>
-	              <div class="corretor">
+	              <div class="corretor" >
 	                <p class="header">
 	                  <img src="img/lupa-branca.png" />
 	                  Fale com um corretor
 	                </p>
 	                <div class="body">
 	                  <img src="img/corretor.jpg" />
-	                  <p class="dados">
-	                    <span class="nome">#{corretorBean.entity.nome}</span> <br />
-	                    celular: <span class="celular">#{corretorBean.entity.celular}</span> <br />
-	                    fixo: <span class="fixo">#{corretorBean.entity.telefone}</span> <br />
-	                    <span class="email">#{corretorBean.entity.email}</span> <br />
+	                  <p class="dados" ng-controller="CorretorCtrl">
+	                    <span class="nome">{{data.dado.nome}}</span> <br />
+	                    <span class="celular">{{data.dado.celular}}</span> <br />
+	                    <span class="fixo">{{data.dado.telefone}}</span> <br />
+	                    <span class="email">{{data.dado.email}}</span> <br />
 	                  </p>
 	                </div>
 	              </div>
 	            </div>
 	          </div>
-	          <div class="novidades" ng-controller="imovelController">
+	          <div class="novidades" ng-controller="MyCtrl">
 	            <h1>Nossas novidades</h1>
-	            <div class="imovel quadrante" data-imovel-id="{{o.id}}" ng-repeat="o in imoveis">
+	            <div class="imovel quadrante" data-imovel-id="{{o.id}}" ng-repeat="o in data.dado">
 	                <div class="foto">
 	                  <img src="img/imoveis/{{o.fotoQuadrante}} " width="302" height="184"/>
 	                  <div class="enfeite-cima">
@@ -136,10 +148,9 @@
 	        </div>
 	      </div>  
 	    </div>
-		<script src="js/jquery.js"></script>
 		<script src="js/jquery.cycle2.js"></script>
 		<script src="js/bootstrap-slider.js"></script>
 		<script src="js/dropdown.js"></script>
-		<script src="js/scripts.js"></script>
+		
   	</body>
 </html>
