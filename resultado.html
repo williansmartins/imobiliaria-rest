@@ -24,27 +24,27 @@
 		    </div>
 		    <div class="menu">
 		      <ul>
-		        <li class=""><a class="selected first" href="index.xhtml">Home</a></li>
+		        <li class=""><a class="selected first" href="index.html">Home</a></li>
 		      </ul>
 			      <div class="busca">
-					<form id="form-busca"  onkeypress="if (event.keyCode == 13) { document.getElementById('form-busca:ttt').click(); return false; }">
-				        <input type="text" class="form-control" id="busca" placeholder="busca"/>
-				        <a href="#">
+					<form id="form-busca">
+				        <input type="text" class="form-control" id="busca" name="busca" placeholder="busca"/>
+				        <a href="#" class="buscador">
 				          <img src="img/lupa.png" />
 				        </a>
-			        </form>		      
+			        </form>	      
 		    	</div>
 		    </div>
 			<form>
 		    <div class="wrapper">
 		      <div class="home">
 		        <div class="content">
-		          <div class="novidades" ng-controller="MyCtrl">
+		          <div class="novidades" ng-controller="BuscaSimplesCtrl">
 		            <h1>Resultado da busca</h1>
 		            <h1>Encontrei estes itens abaixo...</h1>
 			            <div class="imovel quadrante" data-imovel-id="{{o.id}}" ng-repeat="o in data.dado">
 			                <div class="foto">
-			                  <img src="img/imoveis/{{o.fotoQuadrante}}" />
+			                  <img ng-src="img/imoveis/{{o.fotoQuadrante}}" />
 			                  <div class="enfeite-cima">
 			                    <p class="valor">R$ {{o.valor}}</p>
 			                  </div>

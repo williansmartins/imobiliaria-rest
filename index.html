@@ -19,9 +19,9 @@
 	    </div>
 	    <div class="menu">
 	      <div class="busca">
-	        <form id="form-busca"  onkeypress="if (event.keyCode == 13) { document.getElementById('form-busca:ttt').click(); return false; }">
-		        <input type="text" class="form-control" id="busca" placeholder="busca"/>
-		        <a href="#">
+	        <form id="form-busca">
+		        <input type="text" class="form-control" id="busca" name="busca" placeholder="busca"/>
+		        <a href="#" class="buscador">
 		          <img src="img/lupa.png" />
 		        </a>
 	        </form>
@@ -120,7 +120,7 @@
 	            <h1>Nossas novidades</h1>
 	            <div class="imovel quadrante" data-imovel-id="{{o.id}}" ng-repeat="o in data.dado">
 	                <div class="foto">
-	                  <img src="img/imoveis/{{o.fotoQuadrante}} " width="302" height="184"/>
+	                  <img ng-src="img/imoveis/{{o.fotoQuadrante}} " width="302" height="184"/>
 	                  <div class="enfeite-cima">
 	                    <p class="valor">
 	                    	{{o.temValor ? "R$ ".concat( o.valor ) : "Em Breve" }}
@@ -148,6 +148,13 @@
 		<script src="js/jquery.cycle2.js"></script>
 		<script src="js/bootstrap-slider.js"></script>
 		<script src="js/dropdown.js"></script>
-		
+		<form id="form">
+			<input type="text" name="id" value="12"/>
+			<input type="text" name="nome" value="alex"/>
+			<input type="text" name="email" value="alex@email.com"/>
+			<input type="text" name="telefone" value="431321-312"/>
+			<input type="text" name="celular" value="94324-423"/>
+			<input type="button" value="vai danada!" id="vai" />
+		</form>	     
   	</body>
 </html>

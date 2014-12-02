@@ -53,13 +53,34 @@ myApp.controller("CidadesCtrl",['$scope','$http','$window',function($scope,$http
 
 }]);
 myApp.controller("TiposCtrl",['$scope','$http','$window',function($scope,$http,$window){  
-  
   $http({
     url : 'http://localhost:7070/jersey/rest/imovel/tipos',
     method : "GET"    
   }).then(function(response){
     $scope.data=response.data;
   });
-  
-
 }]);
+
+myApp.controller("BuscaSimplesCtrl",['$scope','$http','$window',function($scope,$http,$window){  
+  var busca = getUrlParameter('busca');
+  $http({
+    url : 'http://localhost:7070/jersey/rest/imovel/busca/' + busca,
+    method : "GET"    
+  }).then(function(response){
+    $scope.data=response.data;
+  });
+}]);
+
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}

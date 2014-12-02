@@ -1,5 +1,70 @@
 $(document).ready( function(){
 	
+	$("#busca").keypress(function(){
+		if (event.keyCode == 13) { 
+			document.getElementById('form-busca:buscador').click(); 
+			return false; 
+		}
+		
+	});
+
+	$(".buscador").click(function(e){
+		e.preventDefault();
+		window.location.href = "/resultado.html?busca=" + $("#busca").val() ;
+	});
+
+
+	var url1 = "http://localhost:7070/jersey/rest/corretor/get";
+	var url2 = "http://www.w3schools.com/website/Customers_MYSQL.php";
+	var url3 = "http://localhost:7070/jersey/rest/corretor/consumidor";
+	var url4 = "http://localhost:7070/JerseyJSONExample/rest/jsonServices/send";
+	
+	var data = '{"id":null,"nome":null,"email":null,"telefone":null,"celular":null}';
+	var data2 = "{ 'id': '21', 'nome': 'Washington L. M. de Morais', 'email': 'contato@gmail.com', 'telefone': '(11) 4148-4583', 'celular': '(11) 993-650-220'	}";
+	var data3 = '{"id":1,"nome":"will","email":"email@teste.com","telefone":43432345,"celular":9983456}';
+
+	$( "#vai" ).click(function( event ) {
+	
+		//JS			
+		// var xmlhttp = new XMLHttpRequest();
+		// xmlhttp.onreadystatechange=function() {
+		//     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		//         alert(xmlhttp.responseText);
+		//     }
+		// }
+		// xmlhttp.open("GET", url1, true);
+		// xmlhttp.send();	
+
+		//AJAX
+		// $.ajax({
+		//   type: "GET",
+		//   // data: data,
+		//   // contentType: "application/json",
+		//   url: url4,
+		// })
+		// .done(function( msg ) {
+		//     console.info( msg );
+		// })
+		// .error(function( msg ) {
+	 //      	console.info( msg );
+		// });
+
+		console.info(data3);
+
+		$.ajax({
+		    type: 'POST',
+		    url: "http://localhost:7070/jersey/rest/corretor/consumidor2",
+		    // data: '{"name":"jonas"}', // or JSON.stringify ({name: 'jonas'}),
+		    data: data3,
+		    success: function(data) { alert('data: ' + data); },
+		    error: function(data) { console.info(data); },
+		    headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+	});
+
+
 	if($("body").hasClass("admin-imovel") ){
 		//$('#myTab a:last').tab('show');
 		var tab = GetURLParameter('tab');
@@ -262,3 +327,4 @@ function validateEmail(email)
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
+
