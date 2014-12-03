@@ -10,12 +10,23 @@ $(document).ready( function(){
 
 	$(".buscador").click(function(e){
 		e.preventDefault();
-		window.location.href = "/resultado.html?busca=" + $("#busca").val() ;
+		window.location.href = "/resultado.html?tipoDeBusca=simples&busca=" + $("#busca").val() ;
 	});
 	
 	$(".pesquisar").click(function(e){
 		e.preventDefault();
-		window.location.href = "/resultado.html?busca=" + $("#busca").val() ;
+		var tipo = $(".combo_tipo").val();
+		var cidade = $(".combo_cidade").val();
+		var preco = $(".preco").val();
+		
+		debugger;
+
+		if( preco != "" ){
+			var min = preco.split(",")[0];
+			var max = preco.split(",")[1];
+		}
+
+		window.location.href = "/resultado.html?tipoDeBusca=complexa&tipo=" + tipo + "&cidade=" + cidade + "&min=" + min + "&max=" + max ;
 	});
 
 
@@ -129,6 +140,7 @@ $(document).ready( function(){
 	$('#modal-cliente\\:imovel_id').val( $('#form-imovel\\:imovel_id_imovel').val() );
 	
 	if($("body").hasClass("home") ){
+	    
 	    
 		//Permite o clique no quadrante chamando a tela do imovel especifico
 		$(".imovel.quadrante").css( "cursor", "pointer" );

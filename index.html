@@ -59,7 +59,7 @@
 	            </div>
 	            <div class="direita">
 	              <div class="pesquisa">
-	              	<form action="resultado.xhtml" onsubmit="return check()">
+	              	<form action="resultado.html" onsubmit="return check()">
 		                <p class="header">
 		                  <img src="img/lupa-branca.png" />
 		                  Pesquisa de imóveis
@@ -68,7 +68,7 @@
 		                  <div class="combos">
 		                    <label>Tipo:</label>
 		                    <div class="btn-group tipo">
-		                      <select class="form-control" ng-controller="TiposCtrl">
+		                      <select class="form-control combo_tipo" ng-controller="TiposCtrl">
 		                          <option>Qualquer</option>
 		                          <option ng-repeat="o in data.dado">{{o}}</option>
 		                      </select>
@@ -77,7 +77,7 @@
 		                  <div class="combos">
 		                    <label>Cidade:</label>
 		                    <div class="btn-group cidade">
-		                      <select class="form-control" ng-controller="CidadesCtrl">
+		                      <select class="form-control combo_cidade" ng-controller="CidadesCtrl">
 		                          <option>Qualquer</option>
 		                          <option ng-repeat="o in data.dado">{{o}}</option>
 		                      </select>
@@ -86,7 +86,7 @@
 		                  <div class="combos slider-wrapper">
 		                    <label>Faixa de preço:</label>
 		                    <input type="text" 
-		                            class="span2" 
+		                            class="preco" 
 		                            value=""
 		                            name="preco" 
 		                            data-slider-min="10000" 

@@ -62,25 +62,37 @@ myApp.controller("TiposCtrl",['$scope','$http','$window',function($scope,$http,$
 }]);
 
 myApp.controller("BuscaSimplesCtrl",['$scope','$http','$window',function($scope,$http,$window){  
+  var tipoDeBusca = getUrlParameter('tipoDeBusca');
   var busca = getUrlParameter('busca');
-  $http({
-    url : 'http://localhost:7070/jersey/rest/imovel/busca/' + busca,
-    method : "GET"    
-  }).then(function(response){
-    $scope.data=response.data;
-  });
+  var url = "";
+  var tipo = getUrlParameter('tipo');
+  var cidade = getUrlParameter('cidade');
+  var min = getUrlParameter('min');
+  var max = getUrlParameter('max');
+  
+  var urlSimples = 'http://localhost:7070/jersey/rest/imovel/busca/' + busca;
+  var urlComplexa = 'http://localhost:7070/jersey/rest/imovel/busca/' + tipo + "/" + cidade + "/" + min + "/" + max ;
+  // var urlComplexa = 'http://localhost:7070/jersey/rest/imovel/busca/apartamento/cotia/null/null';
+                     //http://localhost:7070/jersey/rest/imovel/busca/apartamento/cotia/null/null
+
+  if( tipoDeBusca == "simples"){
+    $http({
+      url : urlSimples,
+      method : "GET"    
+    }).then(function(response){
+      $scope.data=response.data;
+    });
+  }else{
+      $http({
+        url : urlComplexa,
+        method : "GET",   
+      }).then(function(response){
+        $scope.data=response.data;
+      });
+  }
+
 }]);
 
-myApp.controller("BuscaCompletaCtrl",['$scope','$http','$window',function($scope,$http,$window){  
-  var busca = getUrlParameter('busca');
-  $http({
-    url : 'http://localhost:7070/jersey/rest/imovel/busca/completa',
-    method : "GET",
-    data: '{"tipo":"casa","cidade":"","min":"","max":""}'    
-  }).then(function(response){
-    $scope.data=response.data;
-  });
-}]);
 
 function getUrlParameter(sParam)
 {
