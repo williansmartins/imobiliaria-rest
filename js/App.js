@@ -71,6 +71,17 @@ myApp.controller("BuscaSimplesCtrl",['$scope','$http','$window',function($scope,
   });
 }]);
 
+myApp.controller("BuscaCompletaCtrl",['$scope','$http','$window',function($scope,$http,$window){  
+  var busca = getUrlParameter('busca');
+  $http({
+    url : 'http://localhost:7070/jersey/rest/imovel/busca/completa',
+    method : "GET",
+    data: '{"tipo":"casa","cidade":"","min":"","max":""}'    
+  }).then(function(response){
+    $scope.data=response.data;
+  });
+}]);
+
 function getUrlParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);

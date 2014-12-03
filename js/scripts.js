@@ -2,13 +2,18 @@ $(document).ready( function(){
 	
 	$("#busca").keypress(function(){
 		if (event.keyCode == 13) { 
-			document.getElementById('form-busca:buscador').click(); 
+			$(".buscador").click(); 
 			return false; 
 		}
 		
 	});
 
 	$(".buscador").click(function(e){
+		e.preventDefault();
+		window.location.href = "/resultado.html?busca=" + $("#busca").val() ;
+	});
+	
+	$(".pesquisar").click(function(e){
 		e.preventDefault();
 		window.location.href = "/resultado.html?busca=" + $("#busca").val() ;
 	});
