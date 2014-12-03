@@ -37,8 +37,14 @@ myApp.controller("ImovelCarouselCtrl",['$scope','$http','$window',function($scop
 }]);
 
 function aplicarCarousel(){
-   	$('.cycle-slideshow').cycle('destroy');
-   	$('.cycle-slideshow').cycle();
+    $('.cycle-slideshow').cycle('destroy');
+    $('.cycle-slideshow').cycle();
+}
+
+function aplicarCarousel2(){
+   // $('.slideshow').cycle('destroy');
+    $('.slideshow').cycle();
+    // $('.slideshow').cycle('slides', '> a');
 }
 
 myApp.controller("CidadesCtrl",['$scope','$http','$window',function($scope,$http,$window){  
@@ -72,8 +78,6 @@ myApp.controller("BuscaSimplesCtrl",['$scope','$http','$window',function($scope,
   
   var urlSimples = 'http://localhost:7070/jersey/rest/imovel/busca/' + busca;
   var urlComplexa = 'http://localhost:7070/jersey/rest/imovel/busca/' + tipo + "/" + cidade + "/" + min + "/" + max ;
-  // var urlComplexa = 'http://localhost:7070/jersey/rest/imovel/busca/apartamento/cotia/null/null';
-                     //http://localhost:7070/jersey/rest/imovel/busca/apartamento/cotia/null/null
 
   if( tipoDeBusca == "simples"){
     $http({
@@ -107,3 +111,13 @@ function getUrlParameter(sParam)
         }
     }
 }
+
+myApp.controller("ImovelCtrl",['$scope','$http','$window',function($scope,$http,$window){  
+  $http({
+    url : 'http://localhost:7070/jersey/rest/imovel/' + getUrlParameter('id'),
+    method : "GET"    
+  }).then(function(response){
+    $scope.data=response.data;
+    setTimeout(aplicarCarousel2, 1000);
+  });
+}]);

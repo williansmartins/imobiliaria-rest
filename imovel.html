@@ -1,137 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>Imobiliária</title>
-    <link href="css/estilos.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/demo-slideshow.css" rel="stylesheet">
-    <link href="css/slider.css" rel="stylesheet">
-
-    <style>
-    .slideshow { margin: auto }
-    .slideshow img { margin: 0 2px; }
-    </style>
-
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Imobiliária</title>
+      <link href="css/estilos.css" rel="stylesheet" />
+      <link href="css/bootstrap.css" rel="stylesheet" />
+      <link href="css/demo-slideshow.css" rel="stylesheet" />
+      <link href="css/slider.css" rel="stylesheet" />
+      <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+      <script src="js/jquery.js"></script>
+      <script src="js/scripts.js"></script>
+      <script  src="js/App.js"></script>       
+      <style>
+      .slideshow { margin: auto }
+      .slideshow img { margin: 0 2px; }
+      </style>
   </head>
-  <body>
-    <div class="topo">
-      <p class="telefone">(11) 4143-3456</p>
-      <p class="email">contato@imobiliaria.com.br</p>
-    </div>
-    <div class="menu">
-      <ul>
-        <li class=""><a class="selected first" href="index.html">Home</a></li>
-        <li><a href="#">Imóvel</a></li>
-      </ul>
-      <div class="busca">
-        <input type="text" class="form-control" id="busca" placeholder="busca"/>
-        <a href="#">
-          <img src="img/lupa.png" />
+    <body styleClass="imovel" ng-app="myApp">
+      <form id="form-imovel">
+      <div class="topo">
+        <p class="telefone">#{corretorBean.entity.telefone}</p>
+      <p class="email">#{corretorBean.entity.email}</p>
+      </div>
+      <div class="menu">
+        <ul>
+          <li class=""><a class="selected first" href="index.xhtml">Home</a></li>
+        </ul>
+      </div>
+      <div class="wrapper" ng-controller="ImovelCtrl">
+        <div class="interna">
+          <div class="content">
+            <div class="hero">
+              <img class="imagem-grande" ng-src="img/imoveis/{{data.dado.fotos[0].thumb}}" style="float:left" width="421" height="308"/>
+              <div class="dados">
+                <input type="hidden" value="{{data.dado.id}}" id="imovel_id_imovel"></input>
+                <h1 class="titulo">{{data.dado.titulo}}</h1>
+                <p class="descricao">  
+                  {{data.dado.descricaoCompleta}}
+                </p>
+                <div class="detalhes">
+                  <p class="tamanho"><img ng-src="img/lupa-metros.png"/>{{data.dado.metros}} metros</p>
+                  <p class="vagas"><img ng-src="img/garagem.png"/>{{data.dado.vagas}} vaga(s)</p>
+                  <p class="cidade"><img ng-src="img/city.png"/>{{data.dado.cidade}}</p>
+                  <p class="dormitorios"><img ng-src="img/cama.png"/>{{data.dado.dormitorios}} dormitórios</p>
+                  <p class="suites"><img ng-src="img/suite.png"/>{{data.dado.suites}} suítes</p>
+                  <p class="banheiros"><img ng-src="img/banheiro.png"/>{{data.dado.banheiros}} banheiros</p>
+                  <a href="#" class="btn botao1 btn-success" data-toggle="modal" data-target="#myModal">Estou interessado, quero mais informações!</a>
+                  <span class="botao2">Ligue agora {{data.dado.telefone}}"></span>
+                </div>
+              </div>
+            </div>
+              <div class="carousel">
+                <div class="slideshow" 
+                    data-cycle-fx="carousel"
+                    data-cycle-timeout="0"
+                    data-cycle-next="#next"
+                    data-cycle-prev="#prev"
+                    data-cycle-slides="> a"
+                    data-cycle-log="false"
+                    >
+                    <a ng-repeat="o in data.dado.fotos" href="#" class="show-image cycle-slide" data-index="mudar" data-url="imoveis/{{o.thumb}}"><img ng-src="img/imoveis/{{o.thumb}}" width="92" height="69"/></a>
+                </div>
+  
+                <div class="center">
+                    <a href="#" id="prev" class="bt"> </a>
+                    <a href="#" id="next" class="bt"> </a>
+                </div>
+  
+                <div class="cycle-pager" id="pager"></div>
+              </div>
+              <div class="itens caracteristicas">
+                <h1>Características do Empreendimento</h1>
+                <ul id="caracteristicas" data-valor="{{data.dado.caracteristicas}}">
+                </ul>
+              </div>
+              <div class="itens recursos">
+                <h1>Recursos das Redondezas</h1>
+                <ul id="recursos" data-valor="{{data.dado.recursos}}">
+                </ul>
+              </div>
+              <div class="mapa">
+                <h1>Mapa da região</h1>
+                <iframe ng-src="{{data.dado.maps}}" width="600" height="450" frameborder="0" style="border:0"></iframe>
+                <p>{{data.dado.endereco}}</p>
+              </div>
+            </div>
+          </div>
+        </div>  
+        <div class="fixed">
+        <a href="#" class="" data-toggle="modal" data-target="#myModal">
+          <img src="img/balao-verde.png" />
         </a>
       </div>
-    </div>
-    <div class="wrapper">
-      <div class="interna">
-        <div class="content">
-          <div class="hero">
-            <img class="imagem-grande" src="img/imovel1.jpg" />
-            <div class="dados">
-              <h1 class="titulo">Apartamento no bairro Pinheiros em São Paulo (SP)</h1>
-              <p class="descricao">  
-                Apartamento no Bairro de Pinheiros em São Paulo Zona Oeste, SP Apartamentos de 43 a 123 m² com 1 a 2 dorms (1 suíte) e 1 a 2 vagas D.O.C. é denominação de origem controlada, uma sigla que identifica os vinhos de melhor procedência e agora também os  orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed rhoncus nibh. Nulla dignissim diam sit amet posuere viverra. Praesent id sem velit. Donec mauris justo, ultricies a neque et, adipiscing condimentum arcu. Vivamus euismod, dolor a tempor luctus, arcu ante ornare nisl, interdum vulputate purus justo non lorem. Nullam malesuada ac elit nec venenatis. Nulla lobortis scelerisque justo, id aliquet libero pretium non. Nulla auctor iaculis faucibus. Ut adipiscing euismod suscipit. Fusce nunc nunc, volutpat vitae odio sit amet, gravida viverra magna.
-              </p>
-              <div class="detalhes">
-                <p class="cidade"><img src="img/lupa-metros.png">54 metros</p>
-                <p class="tamanho"><img src="img/cama.png">2 dormitórios</p>
-                <p class="cidade"><img src="img/garagem.png">2 vagas na garagem</p>
-                <p class="tamanho"><img src="img/city.png">Cidade</p>
-                <a href="#" class="btn botao1 btn-success">Estou interessado, quero mais informações</a>
-                <a href="#" class="btn botao2 btn-success">Ligue agora (11) 4123-7654</a>
-              </div>
-            </div>
+      </form> 
+      <div class="modal fade" id="myModal" >
+          <form id="modal-cliente">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">&nbsp;</h4>
           </div>
-            <div class="carousel">
-              <div class="slideshow" 
-                  data-cycle-fx="carousel"
-                  data-cycle-timeout="0"
-                  data-cycle-next="#next"
-                  data-cycle-prev="#prev"
-                  data-cycle-slides="> a"
-                  >
-                  <a href="#" class="show-image" data-url="imovel1.jpg"><img src="img/carousel1.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel2.jpg"><img src="img/carousel2.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel1.jpg"><img src="img/carousel1.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel2.jpg"><img src="img/carousel2.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel1.jpg"><img src="img/carousel1.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel2.jpg"><img src="img/carousel2.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel1.jpg"><img src="img/carousel1.jpg"></a>
-                  <a href="#" class="show-image" data-url="imovel2.jpg"><img src="img/carousel2.jpg"></a>
+          <div class="modal-body">
+                  <div class="">
+                  <input type="hidden" value="#{clienteBean.imovel_id}}" id="imovel_id"></input>
+                  <label>Imóvel*:</label>
+                  <input type="text" styleClass="form-control" maxlength="255" value="#{clienteBean.entity.interesse}}" id="interesse" name="interesse"/>
+                  <label>Nome*:</label>
+                  <input type="text" styleClass="form-control" maxlength="255" value="#{clienteBean.entity.nome}}" id="nome"/>
+                  <label>Email*:</label>
+                  <input type="text" styleClass="form-control" maxlength="255" value="#{clienteBean.entity.email}}" id="email"/>
+                  <label>Telefone fixo*:</label>
+                  <input type="text" styleClass="form-control telefone" maxlength="255" value="#{clienteBean.entity.telefone}}" id="telefone"/>
+                  <label>Celular*:</label>
+                  <input type="text" styleClass="form-control celular" maxlength="255" value="#{clienteBean.entity.celular}}" id="celular"/>
               </div>
-
-              <div class="center">
-                  <a href="#" id="prev" class="bt"> </a>
-                  <a href="#" id="next" class="bt"> </a>
-              </div>
-
-              <div class="cycle-pager" id="pager"></div>
-            </div>
-            <div class="itens caracteristicas">
-              <h1>Características do Empreendimento</h1>
-              <ul>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-                <li>Descanso</li>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-                <li>Descanso</li>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-                <li>Descanso</li>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-              </ul>
-            </div>
-            <div class="itens recursos">
-              <h1>Recursos das Redondezas</h1>
-              <ul>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-                <li>Descanso</li>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-                <li>Descanso</li>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-                <li>Descanso</li>
-                <li>Salão de festas</li>
-                <li>Jardim externo</li>
-                <li>Salão de jogos</li>
-              </ul>
-            </div>
-            <div class="mapa">
-              <h1>Mapa da região</h1>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d1829.4916250485917!2d-46.851434499999996!3d-23.497112800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!1i0!3e6!4m0!4m5!1s0x94cf023b1a960943%3A0xc7c573393bf1f502!2sAlphaville+Comercial%2C+Barueri+-+SP!3m2!1d-23.4970209!2d-46.851323699999995!5e0!3m2!1spt-PT!2sbr!4v1408497063839" width="600" height="450" frameborder="0" style="border:0"></iframe>
-              <p>Rua Capote Valente, 1300 / Pinheiros - São Paulo - (SP)</p>
-            </div>
           </div>
-        </div>
-      </div>  
-    </div>
+          <div class="modal-footer">
+            <button action="${clienteBean.salvarSomente()}}" onclick="return validaFormCliente()" styleClass="btn btn-success" value="Confirmar"></button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+          </form>
+    </div><!-- /.modal -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.cycle2.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/jquery.cycle2.carousel.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/jquery.maskedinput.js"></script>
   </body>
-
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.cycle2.js"></script>
-  <script src="js/bootstrap-slider.js"></script>
-  <script src="js/dropdown.js"></script>
-  <script src="js/scripts.js"></script>
-  <script src="js/jquery.cycle2.carousel.js"></script>
-  <script>$.fn.cycle.defaults.autoSelector = '.slideshow';</script>
 </html>

@@ -199,6 +199,16 @@ $(document).ready( function(){
 	        }
 	    }).trigger('focusout');
 	    
+	    $.ajax({
+		    type: 'POST',
+		    url: "http://localhost:7070/jersey/rest/imovel/" + GetURLParameter('id'),
+		    // data: '{"name":"jonas"}', // or JSON.stringify ({name: 'jonas'}),
+		    success: function(data) { alert('data: ' + data); },
+		    error: function(data) { alert(data); },
+		    headers: {
+				'Content-Type': 'application/json',
+			},
+		});
 	}
 
 
